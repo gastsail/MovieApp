@@ -37,7 +37,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), UpcomingMoviesAdapter.O
                 is Resource.Success -> {
                     binding.progressBar.visibility = View.GONE
                     binding.rvMovies.layoutManager = LinearLayoutManager(requireContext())
-                    binding.rvMovies.adapter = UpcomingMoviesAdapter(it.data.results, this)
+                    binding.rvMovies.adapter = ConcatAdapter(MovieAdapter(UpcomingMoviesAdapter(it.data.results,this)))
                 }
                 is Resource.Failure -> {
                     binding.progressBar.visibility = View.GONE
