@@ -45,7 +45,7 @@ class UpcomingMoviesAdapter(
         val context: Context
     ) : BaseViewHolder<Movie>(binding.root) {
         override fun bind(item: Movie)  {
-            Glide.with(context).load("https://image.tmdb.org/t/p/w500/${item.backdrop_path}").centerCrop().into(binding.imgMovie)
+            Glide.with(context).load("https://image.tmdb.org/t/p/w500/${item.poster_path}").centerCrop().into(binding.imgMovie)
         }
     }
 }
