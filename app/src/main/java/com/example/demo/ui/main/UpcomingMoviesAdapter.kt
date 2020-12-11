@@ -20,8 +20,7 @@ class UpcomingMoviesAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-        val itemBinding =
-            MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val itemBinding = MovieItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val holder = UpcomingMoviesViewHolder(itemBinding, parent.context)
 
         itemBinding.root.setOnClickListener {
@@ -45,8 +44,8 @@ class UpcomingMoviesAdapter(
         val binding: MovieItemBinding,
         val context: Context
     ) : BaseViewHolder<Movie>(binding.root) {
-        override fun bind(item: Movie): Unit = with(binding) {
-            Glide.with(context).load(item.backdrop_path).centerCrop().into(imgMovie)
+        override fun bind(item: Movie)  {
+            Glide.with(context).load("https://image.tmdb.org/t/p/w500/${item.backdrop_path}").centerCrop().into(binding.imgMovie)
         }
     }
 }
