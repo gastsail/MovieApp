@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Upcoming Movies"
+        android:text="Popular Movies"
         android:textStyle="bold"
         android:textSize="20sp"/>
 

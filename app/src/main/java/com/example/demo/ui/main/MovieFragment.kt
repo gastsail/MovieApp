@@ -19,6 +19,7 @@ import com.example.demo.presentation.MovieViewModel
 import com.example.demo.presentation.MovieViewModelFactory
 import com.example.demo.ui.main.adapters.concat.UpcomingConcatAdapter
 import com.example.demo.ui.main.adapters.MoviesAdapter
+import com.example.demo.ui.main.adapters.concat.PopularConcatAdapter
 import com.example.demo.ui.main.adapters.concat.TopRatedConcatAdapter
 
 
@@ -44,6 +45,8 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MoviesAdapter.OnMovieCl
                     concatAdapter.apply {
                         addAdapter(0, UpcomingConcatAdapter(MoviesAdapter(it.data.first.results,this@MovieFragment)))
                         addAdapter(1, TopRatedConcatAdapter(MoviesAdapter(it.data.second.results,this@MovieFragment)))
+                        addAdapter(2, PopularConcatAdapter(MoviesAdapter(it.data.third.results,this@MovieFragment)))
+
                     }
                     binding.rvMovies.adapter = concatAdapter
                 }

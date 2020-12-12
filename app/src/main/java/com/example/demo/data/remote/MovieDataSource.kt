@@ -14,4 +14,8 @@ class MovieDataSource(private val webService: WebService) {
     suspend fun getTopRatedMovies(): MovieList {
         return webService.getTopRatedMovies(AppConstants.API_KEY)
     }
+
+    suspend fun getPopularMovies(): MovieList {
+        return webService.getPopulardMovies(AppConstants.API_KEY)
+    }
 }
