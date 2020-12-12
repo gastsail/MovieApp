@@ -1,4 +1,4 @@
-package com.example.demo.ui.main
+package com.example.demo.ui.main.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import com.example.demo.core.BaseViewHolder
 import com.example.demo.data.model.Movie
 import com.example.demo.databinding.MovieItemBinding
 
-class UpcomingMoviesAdapter(
-    private val upcomingMoviesList: List<Movie>,
-    private val itemClickListener: OnMovieClickListener
+class MoviesAdapter(
+        private val moviesList: List<Movie>,
+        private val itemClickListener: OnMovieClickListener
 ) : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
     interface OnMovieClickListener {
@@ -25,8 +25,8 @@ class UpcomingMoviesAdapter(
 
         itemBinding.root.setOnClickListener {
             val position = holder.bindingAdapterPosition.takeIf { it != DiffUtil.DiffResult.NO_POSITION }
-                ?: return@setOnClickListener
-            itemClickListener.onMovieClick(upcomingMoviesList[position])
+                    ?: return@setOnClickListener
+            itemClickListener.onMovieClick(moviesList[position])
         }
 
         return holder
@@ -34,17 +34,17 @@ class UpcomingMoviesAdapter(
 
     override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
         when (holder) {
-            is UpcomingMoviesViewHolder -> holder.bind(upcomingMoviesList[position])
+            is UpcomingMoviesViewHolder -> holder.bind(moviesList[position])
         }
     }
 
-    override fun getItemCount(): Int = upcomingMoviesList.size
+    override fun getItemCount(): Int = moviesList.size
 
     private inner class UpcomingMoviesViewHolder(
-        val binding: MovieItemBinding,
-        val context: Context
+            val binding: MovieItemBinding,
+            val context: Context
     ) : BaseViewHolder<Movie>(binding.root) {
-        override fun bind(item: Movie)  {
+        override fun bind(item: Movie) {
             Glide.with(context).load("https://image.tmdb.org/t/p/w500/${item.poster_path}").centerCrop().into(binding.imgMovie)
         }
     }

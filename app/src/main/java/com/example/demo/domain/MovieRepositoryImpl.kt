@@ -6,5 +6,6 @@ import com.example.demo.data.model.MovieList
 
 class MovieRepositoryImpl(private val dataSource: MovieDataSource): MovieRepository {
 
-    override suspend fun getUpcomingMovies(): Resource<MovieList> = dataSource.getUpcomingMovies()
+    override suspend fun getUpcomingMovies(): MovieList = dataSource.getUpcomingMovies()
+    override suspend fun getTopRatedMovies(): MovieList = dataSource.getTopRatedMovies()
 }
