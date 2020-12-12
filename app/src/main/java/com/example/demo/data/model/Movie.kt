@@ -10,6 +10,7 @@ data class Movie(
     val genre_ids: List<Int> = listOf(),
     val id: Int = -1,
     val original_title: String = "",
+    val original_language: String = "",
     val overview: String = "",
     val popularity: Double = -1.0,
     val poster_path: String = "",

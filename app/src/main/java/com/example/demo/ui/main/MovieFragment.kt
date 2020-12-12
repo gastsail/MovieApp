@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import com.example.demo.R
 import com.example.demo.core.Resource
@@ -61,10 +62,7 @@ class MovieFragment : Fragment(R.layout.fragment_movie), MoviesAdapter.OnMovieCl
     }
 
     override fun onMovieClick(movie: Movie) {
-        Toast.makeText(
-            requireContext(),
-            "Movie clicked: ${movie.original_title}",
-            Toast.LENGTH_SHORT
-        ).show()
+        val action = MovieFragmentDirections.actionMovieFragmentToMovieDetailFragment(movie.poster_path,movie.backdrop_path,movie.vote_average.toFloat(),movie.vote_count,movie.overview,movie.title,movie.original_language,movie.release_date)
+        findNavController().navigate(action)
     }
 }
