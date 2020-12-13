@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/movieFragment"
         android:name="com.example.demo.ui.main.MovieFragment"
-        android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" >
+        android:label="Movies"
+        tools:layout="@layout/fragment_movie">
         <action
             android:id="@+id/action_movieFragment_to_movieDetailFragment"
             app:destination="@id/movieDetailFragment"
@@ -21,8 +21,8 @@
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.example.demo.ui.detail.MovieDetailFragment"
-        android:label="fragment_movie_detail"
-        tools:layout="@layout/fragment_movie_detail" >
+        android:label="Movie details"
+        tools:layout="@layout/fragment_movie_detail">
         <argument
             android:name="posterImageUrl"
             app:argType="string" />
