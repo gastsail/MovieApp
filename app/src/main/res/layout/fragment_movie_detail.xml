@@ -17,17 +17,12 @@
         <ImageView
             android:id="@+id/img_background"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:gravity="center"
-            android:text="This is the movie details"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:layout_height="250dp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gradient"/>
+            android:background="@drawable/gradient" />
     </FrameLayout>
 
 
