@@ -7,12 +7,15 @@ import com.example.demo.data.model.MovieEntity
 interface MovieDao {
 
     @Query("SELECT * FROM movieentity")
-    suspend fun getAllMovies(): List<MovieEntity>
+    suspend fun getPopularMovies(): List<MovieEntity>
+
+    @Query("SELECT * FROM movieentity")
+    suspend fun getTopRatedMovies(): List<MovieEntity>
+
+    @Query("SELECT * FROM movieentity")
+    suspend fun getUpcomingMovies(): List<MovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertMovie(movie: MovieEntity)
-
-    @Delete
-    suspend fun deleteMovie(movie: MovieEntity)
+    suspend fun saveMovie(movie: MovieEntity)
 
 }
