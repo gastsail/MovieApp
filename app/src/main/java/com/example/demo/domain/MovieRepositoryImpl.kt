@@ -14,14 +14,14 @@ class MovieRepositoryImpl(
         dataSourceRemote.getUpcomingMovies().results.forEach {
             dataSourceLocal.saveMovie(it.toMovieEntity("upcoming"))
         }
-        return MovieList(dataSourceLocal.getUpcomingMovies().results.filter { it.movie_type == "upcoming" })
+        return dataSourceLocal.getUpcomingMovies()
     }
 
     override suspend fun getTopRatedMovies(): MovieList {
         dataSourceRemote.getTopRatedMovies().results.forEach {
             dataSourceLocal.saveMovie(it.toMovieEntity("toprated"))
         }
-        return MovieList(dataSourceLocal.getTopRatedMovies().results.filter { it.movie_type == "toprated" })
+        return dataSourceLocal.getTopRatedMovies()
 
     }
 
@@ -29,7 +29,7 @@ class MovieRepositoryImpl(
         dataSourceRemote.getPopularMovies().results.forEach {
             dataSourceLocal.saveMovie(it.toMovieEntity("popular"))
         }
-        return MovieList(dataSourceLocal.getPopularMovies().results.filter { it.movie_type == "popular" })
+        return dataSourceLocal.getPopularMovies()
 
     }
 }
